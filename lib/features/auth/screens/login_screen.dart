@@ -1,23 +1,37 @@
+import 'package:ewallet_app/common/utils/utils.dart';
+import 'package:ewallet_app/common/widgets/custom_button.dart';
+import 'package:ewallet_app/common/widgets/custom_button_color.dart';
+import 'package:ewallet_app/features/auth/controller/auth_controller.dart';
 import 'package:ewallet_app/features/auth/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common/utils/colors.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   static const String routeName = '/login-screen';
   const LoginScreen({super.key});
-
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   TextEditingController gmailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool check = false;
+  void signIn() {
+    final email = gmailController.text.trim();
+    final password = passwordController.text.trim();
+    if (email.isNotEmpty && password.isNotEmpty) {
+      ref.read(authControllerProvider).signInUser(context, email, password);
+    } else {
+      showSnackBar(context: context, content: 'Please filled all the field!');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -71,7 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       TextField(
-                        controller: gmailController,
+                        obscureText: true,
+                        controller: passwordController,
                         decoration: const InputDecoration(
                           prefixIcon: Icon(Icons.lock_outline),
                           filled: true,
@@ -156,43 +171,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    width: 167,
-                    height: 48,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, SignUpScreen.routeName);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        side: const BorderSide(
-                          style: BorderStyle.none,
-                        ),
-                        backgroundColor: backgroundColor,
-                      ),
-                      child: const Text(
-                        'SING UP',
-                        style: TextStyle(
-                          color: buttonColor,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ),
+                      width: 167,
+                      height: 48,
+                      child: CustomButton(
+                        text: 'SING UP',
+                        onPressed: () {
+                          Navigator.pushNamed(context, SignUpScreen.routeName);
+                        },
+                      )),
                   SizedBox(
                     width: 167,
                     height: 48,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: buttonColor,
-                      ),
-                      child: const Text(
-                        'SING IN',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
+                    child: CustomButtonWithColor(
+                      text: 'SING IN',
+                      onPressed: signIn,
                     ),
                   ),
                 ],
