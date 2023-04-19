@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:ewallet_app/features/auth/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -5,8 +8,24 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../../../common/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LandingScreen extends StatelessWidget {
+class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
+
+  @override
+  State<LandingScreen> createState() => _LandingScreenState();
+}
+
+class _LandingScreenState extends State<LandingScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(
+          seconds: 5,
+        ), () {
+      Navigator.pushNamed(context, LoginScreen.routeName);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +82,7 @@ class LandingScreen extends StatelessWidget {
                 lineHeight: 6,
                 animationDuration: 3000,
                 percent: 1,
-                progressColor: const Color(0xff404CB3),
+                progressColor: buttonColor,
                 barRadius: const Radius.circular(15),
                 backgroundColor: Colors.grey,
                 curve: Curves.easeInCirc,
