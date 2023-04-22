@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ewallet_app/features/home/screen/home_screen.dart';
+import 'package:ewallet_app/screen_layout.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -49,9 +50,19 @@ class AuthRepository {
       await auth.signInWithEmailAndPassword(email: email, password: password);
       // ignore: use_build_context_synchronously
       Navigator.pushNamedAndRemoveUntil(
-          context, HomeScreen.routeName, (route) => false);
+          context, ScreenLayout.routeName, (route) => false);
     } on FirebaseAuthException catch (e) {
       showSnackBar(context: context, content: e.message!);
     }
+  }
+
+  Future<UserModel?> getCurrentDataUser() async {
+    var user =
+        await firestore.collection('users').doc(auth.currentUser!.uid).get();
+    UserModel? userdata;
+    if (user.data() != null) {
+      userdata = UserModel.fromMap(user.data()!);
+    }
+    return userdata;
   }
 }

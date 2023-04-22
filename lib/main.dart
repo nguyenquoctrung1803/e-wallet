@@ -1,5 +1,9 @@
+import 'package:ewallet_app/common/screens/loading_screen.dart';
 import 'package:ewallet_app/common/utils/colors.dart';
+import 'package:ewallet_app/common/widgets/error_screen.dart';
+import 'package:ewallet_app/features/auth/controller/auth_controller.dart';
 import 'package:ewallet_app/route.dart';
+import 'package:ewallet_app/screen_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -28,7 +32,18 @@ class MyApp extends ConsumerWidget {
         scaffoldBackgroundColor: backgroundColor,
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const LandingScreen(),
+      home: ref.watch(userDataAuthProvider).when(
+          data: (userdata) {
+            if (userdata == null) {
+              return const LandingScreen();
+            } else {
+              return const ScreenLayout();
+            }
+          },
+          error: (err, trace) {
+            return ErrorScreen(error: err.toString());
+          },
+          loading: () => const LoadingScreen()),
     );
   }
 }
