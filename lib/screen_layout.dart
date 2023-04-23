@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import 'features/wallets/screens/new_wallet_screen.dart';
+
 class ScreenLayout extends StatefulWidget {
   static const String routeName = '/screen-layout';
   const ScreenLayout({super.key});
@@ -24,7 +26,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
     return const [
       HomeScreen(),
       AnalyticsScreen(),
-      WalletScreen(),
+      NewWalletScreen(),
       WalletScreen(),
       MyProfileScreen(),
     ];
