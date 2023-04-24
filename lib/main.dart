@@ -33,17 +33,17 @@ class MyApp extends ConsumerWidget {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: ref.watch(userDataAuthProvider).when(
-          data: (userdata) {
-            if (userdata == null) {
-              return const LandingScreen();
-            } else {
+            data: (user) {
+              if (user == null) {
+                return const LandingScreen();
+              }
               return const ScreenLayout();
-            }
-          },
-          error: (err, trace) {
-            return ErrorScreen(error: err.toString());
-          },
-          loading: () => const LoadingScreen()),
+            },
+            error: (err, trace) {
+              return ErrorScreen(error: err.toString());
+            },
+            loading: () => const LoadingScreen(),
+          ),
     );
   }
 }

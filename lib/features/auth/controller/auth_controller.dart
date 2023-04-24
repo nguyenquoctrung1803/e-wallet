@@ -9,9 +9,10 @@ final authControllerProvider = Provider((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return AuthController(authRepository: authRepository, ref: ref);
 });
+
 final userDataAuthProvider = FutureProvider((ref) {
   final authController = ref.watch(authControllerProvider);
-  return authController.getCurrentDataUser();
+  return authController.getUserData();
 });
 
 class AuthController {
@@ -31,7 +32,8 @@ class AuthController {
     authRepository.loginUser(context, email, password);
   }
 
-  Future<UserModel?> getCurrentDataUser() {
-    return authRepository.getCurrentDataUser();
+  Future<UserModel?> getUserData() async {
+    UserModel? user = await authRepository.getCurrentDatauser();
+    return user;
   }
 }

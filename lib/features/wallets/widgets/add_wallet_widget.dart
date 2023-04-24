@@ -83,7 +83,7 @@ class _AddWalletWidgetState extends ConsumerState<AddWalletWidget> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: SizedBox(
-              height: size.height * 0.3,
+              height: size.height * 0.27,
               width: size.width - 20,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -139,7 +139,7 @@ class _AddWalletWidgetState extends ConsumerState<AddWalletWidget> {
             padding: const EdgeInsets.only(left: 10, right: 10),
             child: SizedBox(
               width: size.width - 20,
-              height: size.height * 0.55,
+              height: size.height * 0.5,
               child: Card(
                 elevation: 3,
                 shape: const RoundedRectangleBorder(

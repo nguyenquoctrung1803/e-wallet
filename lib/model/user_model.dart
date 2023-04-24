@@ -5,7 +5,6 @@ import 'dart:convert';
 class UserModel {
   final String uid;
   final String fullName;
-
   final String email;
   final String phone;
   final String password;
@@ -29,11 +28,11 @@ class UserModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      uid: map['uid'] as String,
-      fullName: map['fullName'] as String,
-      email: map['email'] as String,
-      phone: map['phone'] as String,
-      password: map['password'] as String,
+      uid: map['uid'] ?? '',
+      fullName: map['fullName'] ?? '',
+      email: map['email'] ?? '',
+      phone: map['phone'] ?? '',
+      password: map['password'] ?? '',
     );
   }
 }

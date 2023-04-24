@@ -57,8 +57,8 @@ class _NewWalletScreenState extends ConsumerState<NewWalletScreen> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const AddWalletWidget(),
+          children: const [
+            AddWalletWidget(),
           ],
         ),
       ),
