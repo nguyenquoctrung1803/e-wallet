@@ -30,12 +30,12 @@ class CreditCardModels {
 
   factory CreditCardModels.fromMap(Map<String, dynamic> map) {
     return CreditCardModels(
-      creditCardId: map['creditCardId'] as String,
-      cardNumber: map['cardNumber'] as String,
-      expiryDate: map['expiryDate'] as String,
-      cardHolderName: map['cardHolderName'] as String,
-      cvvCode: map['cvvCode'] as String,
-      isCvvFocused: map['isCvvFocused'] as bool,
+      creditCardId: map['creditCardId'] ?? '',
+      cardNumber: map['cardNumber'] ?? '',
+      expiryDate: map['expiryDate'] ?? '',
+      cardHolderName: map['cardHolderName'] ?? '',
+      cvvCode: map['cvvCode'] ?? '',
+      isCvvFocused: map['isCvvFocused'] ?? false,
     );
   }
 }

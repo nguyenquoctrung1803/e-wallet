@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NewWalletScreen extends ConsumerStatefulWidget {
+  static const String routeName = '/newwallet-screen';
   const NewWalletScreen({super.key});
 
   @override

@@ -1,14 +1,22 @@
 import 'package:ewallet_app/common/utils/colors.dart';
+import 'package:ewallet_app/features/wallets/controller/wallets_controller.dart';
+import 'package:ewallet_app/features/wallets/screens/new_wallet_screen.dart';
+import 'package:ewallet_app/features/wallets/widgets/list_wallets_widget.dart';
+import 'package:ewallet_app/model/credit_card_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_credit_card/credit_card_brand.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class WalletScreen extends StatelessWidget {
+class WalletScreen extends ConsumerWidget {
   const WalletScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: buttonColor,
       appBar: AppBar(
         title: const Text(
           'My Walllets',
@@ -18,7 +26,9 @@ class WalletScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, NewWalletScreen.routeName);
+            },
             icon: const Icon(
               Icons.add_circle_outline,
             ),
@@ -28,9 +38,7 @@ class WalletScreen extends StatelessWidget {
         bottomOpacity: 0,
         backgroundColor: buttonColor,
       ),
-      body: const Center(
-        child: Text('Wallets Screen'),
-      ),
+      body: const ListWalletsWidget(),
     );
   }
 }

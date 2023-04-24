@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:ewallet_app/model/credit_card_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:ewallet_app/features/wallets/repository/wallets_repository.dart';
@@ -23,5 +25,9 @@ class WalletsController {
       String cardHolderName, String cvvCode, bool isCvvFocused) {
     ref.watch(walletsRepositoryProvider).saveCreditCard(
         context, cardNumber, expiryDate, cardHolderName, cvvCode, isCvvFocused);
+  }
+
+  Stream<List<CreditCardModels>> getCcCard() {
+    return walletsRepository.getCcCard();
   }
 }

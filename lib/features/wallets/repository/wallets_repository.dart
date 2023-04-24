@@ -52,4 +52,19 @@ class WalletsRepository {
       showSnackBar(context: context, content: e.toString());
     }
   }
+
+  Stream<List<CreditCardModels>> getCcCard() {
+    return firestore
+        .collection('users')
+        .doc(auth.currentUser!.uid)
+        .collection('wallets')
+        .snapshots()
+        .asyncMap((event) async {
+      List<CreditCardModels> data = [];
+      for (var document in event.docs) {
+        data.add(CreditCardModels.fromMap(document.data()));
+      }
+      return data;
+    });
+  }
 }

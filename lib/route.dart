@@ -2,6 +2,7 @@ import 'package:ewallet_app/common/widgets/error_screen.dart';
 import 'package:ewallet_app/features/auth/screens/login_screen.dart';
 import 'package:ewallet_app/features/auth/screens/signup_screen.dart';
 import 'package:ewallet_app/features/home/screen/home_screen.dart';
+import 'package:ewallet_app/features/wallets/screens/new_wallet_screen.dart';
 import 'package:ewallet_app/screen_layout.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case ScreenLayout.routeName:
       return MaterialPageRoute(
         builder: (context) => const ScreenLayout(),
+      );
+    case NewWalletScreen.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const NewWalletScreen(),
       );
 
     default:

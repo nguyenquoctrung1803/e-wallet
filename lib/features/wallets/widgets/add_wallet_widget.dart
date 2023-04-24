@@ -139,7 +139,7 @@ class _AddWalletWidgetState extends ConsumerState<AddWalletWidget> {
             padding: const EdgeInsets.only(left: 10, right: 10),
             child: SizedBox(
               width: size.width - 20,
-              height: size.height * 0.5,
+              height: size.height * 0.6,
               child: Card(
                 elevation: 3,
                 shape: const RoundedRectangleBorder(
@@ -198,6 +198,56 @@ class _AddWalletWidgetState extends ConsumerState<AddWalletWidget> {
                     const SizedBox(
                       height: 20,
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Text(
+                            'Glassmorphism',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
+                          const Spacer(),
+                          Switch(
+                            value: useGlassMorphism,
+                            inactiveTrackColor: Colors.grey,
+                            activeColor: Colors.white,
+                            activeTrackColor: buttonColor,
+                            onChanged: (bool value) => setState(() {
+                              useGlassMorphism = value;
+                            }),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Text(
+                            'Card Image',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
+                          const Spacer(),
+                          Switch(
+                            value: useBackgroundImage,
+                            inactiveTrackColor: Colors.grey,
+                            activeColor: Colors.white,
+                            activeTrackColor: buttonColor,
+                            onChanged: (bool value) => setState(() {
+                              useBackgroundImage = value;
+                            }),
+                          ),
+                        ],
+                      ),
+                    ),
                     GestureDetector(
                       onTap: _onValidate,
                       child: Container(
@@ -219,7 +269,7 @@ class _AddWalletWidgetState extends ConsumerState<AddWalletWidget> {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
