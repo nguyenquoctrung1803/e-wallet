@@ -16,15 +16,16 @@ class _NewWalletScreenState extends ConsumerState<NewWalletScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: buttonColor,
       appBar: AppBar(
-        backgroundColor: backgroundColor,
+        backgroundColor: buttonColor,
         bottomOpacity: 0,
         elevation: 0,
         leadingWidth: 70,
         title: const Text(
           'New Wallet',
           style: TextStyle(
-            color: Color(0xff3D6670),
+            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.w700,
           ),
@@ -36,7 +37,7 @@ class _NewWalletScreenState extends ConsumerState<NewWalletScreen> {
             maxLines: 1,
             style: TextStyle(
               fontSize: 16,
-              color: buttonColor,
+              color: Colors.white,
               fontWeight: FontWeight.w400,
             ),
           ),
@@ -47,7 +48,7 @@ class _NewWalletScreenState extends ConsumerState<NewWalletScreen> {
             child: const Text(
               'Save',
               style: TextStyle(
-                color: buttonColor,
+                color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
