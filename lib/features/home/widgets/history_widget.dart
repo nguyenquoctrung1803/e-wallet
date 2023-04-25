@@ -12,7 +12,7 @@ class HistoryWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width - 20,
-      height: 800,
+      height: 750,
       child: Card(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
@@ -129,6 +129,7 @@ class HistoryWidget extends StatelessWidget {
                     ),
                     subtitle: Text(
                       items20[index].subtitle,
+                      maxLines: 1,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -217,6 +218,7 @@ class HistoryWidget extends StatelessWidget {
                     ),
                     subtitle: Text(
                       items19[index].subtitle,
+                      maxLines: 1,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

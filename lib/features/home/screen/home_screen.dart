@@ -1,8 +1,8 @@
 import 'package:ewallet_app/features/home/widgets/char_widget.dart';
+import 'package:ewallet_app/features/home/widgets/chart_data_widget.dart';
 import 'package:ewallet_app/features/home/widgets/history_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../../common/utils/colors.dart';
 
@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    String selectedItemTittle = 'All Wallet';
     return Scaffold(
       appBar: AppBar(
         backgroundColor: buttonColor,
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {},
           icon: const Icon(
             Icons.account_circle_outlined,
-            color: Colors.grey,
+            color: Colors.white,
           ),
         ),
         actions: [
@@ -40,9 +41,39 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
-        title: const Text(
-          'All Wallet',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+        title: PopupMenuButton(
+          onSelected: (value) {
+            setState(() {
+              selectedItemTittle = value;
+              print(selectedItemTittle);
+            });
+          },
+          itemBuilder: ((context) {
+            return const [
+              PopupMenuItem(
+                value: 'PayPal',
+                child: Text('PayPal'),
+              ),
+              PopupMenuItem(
+                value: 'Visa',
+                child: Text('Visa'),
+              ),
+              PopupMenuItem(
+                value: 'American Express',
+                child: Text('American Express'),
+              ),
+            ];
+          }),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                selectedItemTittle,
+                style: const TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              const Icon(Icons.arrow_drop_down),
+            ],
+          ),
         ),
         automaticallyImplyLeading: true,
       ),
