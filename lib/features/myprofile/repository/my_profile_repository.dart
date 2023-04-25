@@ -34,12 +34,9 @@ class MyProfileRepository {
     return userData;
   }
 
-  Future<void> logOut() async {
+  void logOut() {
     // add something to set user == null
-    try {
-      await FirebaseAuth.instance.signOut();
-    } catch (e) {
-      return;
-    }
+
+    FirebaseAuth.instance.signOut();
   }
 }

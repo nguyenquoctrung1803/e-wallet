@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {},
             icon: const Icon(
               Icons.calendar_month_outlined,
-              color: Colors.grey,
+              color: Colors.white,
             ),
           ),
         ],

@@ -5,14 +5,20 @@ import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../../common/utils/colors.dart';
 
-class ChartWidget extends StatelessWidget {
+class ChartWidget extends StatefulWidget {
   const ChartWidget({super.key});
 
   @override
+  State<ChartWidget> createState() => _ChartWidgetState();
+}
+
+class _ChartWidgetState extends State<ChartWidget> {
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    String titlePop = 'This Week';
     return FractionalTranslation(
-      translation: const Offset(0.0, 0.38),
+      translation: const Offset(0.0, 0.35),
       child: SizedBox(
         height: size.height * 0.4,
         width: size.width - 20,
@@ -27,23 +33,89 @@ class ChartWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Text(
-                    'This Week',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: buttonColor,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 14.0,
+                      top: 5,
+                    ),
+                    child: SizedBox(
+                      height: 32,
+                      width: 103,
+                      child: DecoratedBox(
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          color: Color.fromARGB(255, 189, 189, 191),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                        ),
+                        child: PopupMenuButton(
+                          onSelected: (value) {
+                            setState(() {
+                              titlePop = value;
+                              print(titlePop);
+                            });
+                          },
+                          itemBuilder: ((context) {
+                            return const [
+                              PopupMenuItem(
+                                value: 'This month',
+                                child: Text('This month'),
+                              ),
+                              PopupMenuItem(
+                                value: 'Last Week',
+                                child: Text('Last Week'),
+                              ),
+                              PopupMenuItem(
+                                value: 'Last month',
+                                child: Text('Last month'),
+                              ),
+                              PopupMenuItem(
+                                value: 'Half-year',
+                                child: Text('Half-year'),
+                              ),
+                              PopupMenuItem(
+                                value: 'Year',
+                                child: Text('Year'),
+                              ),
+                            ];
+                          }),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                titlePop,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: buttonColor,
+                                ),
+                              ),
+                              const Icon(
+                                Icons.arrow_drop_down,
+                                color: buttonColor,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  Text(
-                    '07 June - 14 June',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 13,
+                  const Padding(
+                    padding: EdgeInsets.only(right: 14.0, top: 5),
+                    child: Text(
+                      '07 June - 14 June',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 13,
+                      ),
                     ),
                   )
                 ],
+              ),
+              const SizedBox(
+                height: 5,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -93,6 +165,9 @@ class ChartWidget extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    width: 8,
+                  ),
                   Stack(
                     children: [
                       SizedBox(
@@ -140,8 +215,11 @@ class ChartWidget extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 8,
+              ),
               SizedBox(
-                height: 220,
+                height: 210,
                 width: size.width - 40,
                 child: const ChartDataWidget(),
               ),

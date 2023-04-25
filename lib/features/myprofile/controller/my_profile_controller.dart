@@ -14,11 +14,6 @@ final myProfileControllerProvider = Provider((ref) {
   );
 });
 
-final logoutUserControllerProvider = FutureProvider((ref) {
-  final myProfileController = ref.watch(myProfileControllerProvider);
-  return myProfileController.logout();
-});
-
 class MyProfileController {
   final MyProfileRepository myProfileRepository;
   final ProviderRef ref;
@@ -30,7 +25,7 @@ class MyProfileController {
     return myProfileRepository.getDataUser();
   }
 
-  Future<void> logout() {
+  void logout() {
     return myProfileRepository.logOut();
   }
 }

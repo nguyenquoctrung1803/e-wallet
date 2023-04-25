@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:ewallet_app/features/auth/screens/login_screen.dart';
 import 'package:ewallet_app/features/myprofile/controller/my_profile_controller.dart';
 import 'package:ewallet_app/model/user_model.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,8 @@ class MyProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     void logout() {
-      ref.read(logoutUserControllerProvider);
+      Navigator.pushNamed(context, LoginScreen.routeName);
+      ref.read(myProfileControllerProvider).logout();
       print('Logout!');
     }
 
@@ -71,6 +73,9 @@ class MyProfileScreen extends ConsumerWidget {
                             fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
+                        ),
+                        const SizedBox(
+                          height: 2,
                         ),
                         const Text(
                           '@Flutter Devloper',
@@ -179,7 +184,7 @@ class MyProfileScreen extends ConsumerWidget {
                         ),
                       ),
                       subtitle: Text(
-                        'Ho Chi Minh, VietNam',
+                        'Ho Chi Minh City, VietNam',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
@@ -190,7 +195,7 @@ class MyProfileScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(
-                height: 4,
+                height: 5,
               ),
               SizedBox(
                 height: size.height * 0.1,
