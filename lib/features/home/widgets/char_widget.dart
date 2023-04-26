@@ -1,7 +1,5 @@
 import 'package:ewallet_app/features/home/widgets/chart_data_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../../common/utils/colors.dart';
 

@@ -4,8 +4,6 @@ import 'package:ewallet_app/common/widgets/custom_button_color.dart';
 import 'package:ewallet_app/features/auth/controller/auth_controller.dart';
 import 'package:ewallet_app/features/auth/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 

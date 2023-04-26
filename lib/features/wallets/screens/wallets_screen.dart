@@ -1,13 +1,8 @@
 import 'package:ewallet_app/common/utils/colors.dart';
-import 'package:ewallet_app/features/wallets/controller/wallets_controller.dart';
 import 'package:ewallet_app/features/wallets/screens/new_wallet_screen.dart';
 import 'package:ewallet_app/features/wallets/widgets/list_wallets_widget.dart';
-import 'package:ewallet_app/model/credit_card_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_credit_card/credit_card_brand.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class WalletScreen extends ConsumerWidget {

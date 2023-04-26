@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:ewallet_app/features/auth/screens/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../../common/utils/colors.dart';

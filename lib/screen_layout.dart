@@ -6,7 +6,6 @@ import 'package:ewallet_app/features/wallets/screens/wallets_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'features/wallets/screens/new_wallet_screen.dart';

@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:ewallet_app/features/auth/screens/login_screen.dart';
 import 'package:ewallet_app/features/myprofile/controller/my_profile_controller.dart';
 import 'package:ewallet_app/model/user_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../common/screens/loading_screen.dart';
