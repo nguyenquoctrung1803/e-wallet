@@ -96,18 +96,22 @@ class HistoryWidget extends StatelessWidget {
                       fontSize: 13,
                     ),
                   ),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Colors.green,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
+                  SizedBox(
+                    height: 16,
+                    width: 60,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Colors.green,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      '+ \$125,17',
-                      style: TextStyle(
-                        fontSize: 13,
+                      child: Text(
+                        '+ \$125,17',
+                        style: TextStyle(
+                          fontSize: 13,
+                        ),
                       ),
                     ),
                   ),
@@ -115,7 +119,7 @@ class HistoryWidget extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 5),
+              padding: const EdgeInsets.only(top: 3),
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: items20.length,
@@ -185,18 +189,22 @@ class HistoryWidget extends StatelessWidget {
                       fontSize: 13,
                     ),
                   ),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Colors.red,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
+                  SizedBox(
+                    height: 16,
+                    width: 60,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Colors.red,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      '- \$125,17',
-                      style: TextStyle(
-                        fontSize: 13,
+                      child: Text(
+                        '- \$125,17',
+                        style: TextStyle(
+                          fontSize: 13,
+                        ),
                       ),
                     ),
                   ),
@@ -204,7 +212,7 @@ class HistoryWidget extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 5),
+              padding: const EdgeInsets.only(top: 3),
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: items19.length,

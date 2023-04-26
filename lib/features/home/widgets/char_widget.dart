@@ -18,7 +18,7 @@ class _ChartWidgetState extends State<ChartWidget> {
     final size = MediaQuery.of(context).size;
     String titlePop = 'This Week';
     return FractionalTranslation(
-      translation: const Offset(0.0, 0.35),
+      translation: const Offset(0.0, 0.34),
       child: SizedBox(
         height: size.height * 0.4,
         width: size.width - 20,
@@ -41,12 +41,12 @@ class _ChartWidgetState extends State<ChartWidget> {
                       top: 5,
                     ),
                     child: SizedBox(
-                      height: 32,
-                      width: 103,
+                      height: 30,
+                      width: 100,
                       child: DecoratedBox(
                         decoration: const BoxDecoration(
                           shape: BoxShape.rectangle,
-                          color: Color.fromARGB(255, 189, 189, 191),
+                          color: Color.fromARGB(255, 199, 199, 201),
                           borderRadius: BorderRadius.all(
                             Radius.circular(20),
                           ),

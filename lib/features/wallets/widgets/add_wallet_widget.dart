@@ -48,12 +48,7 @@ class _AddWalletWidgetState extends ConsumerState<AddWalletWidget> {
             cvvCode,
             isCvvFocused,
           );
-      setState(() {
-        cardNumber = '';
-        expiryDate = '';
-        cardHolderName = '';
-        cvvCode = '';
-      });
+
       showSnackBar(context: context, content: 'Successful!');
     } else {
       showSnackBar(context: context, content: 'Invalid Card!');

@@ -1,8 +1,6 @@
 import 'package:ewallet_app/features/home/widgets/char_widget.dart';
-import 'package:ewallet_app/features/home/widgets/chart_data_widget.dart';
 import 'package:ewallet_app/features/home/widgets/history_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../../../common/utils/colors.dart';
 
@@ -120,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             SizedBox(
-              height: size.height * 0.18,
+              height: size.height * 0.16,
             ),
             const HistoryWidget(),
           ],
